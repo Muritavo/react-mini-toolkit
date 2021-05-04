@@ -10,5 +10,7 @@ Execute the CLI with the command
 
 # Release notes
 
+# v0.0.5
+Fixed some documentation
 # v0.0.4
 Implemented first version of the generation of components
