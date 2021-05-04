@@ -34,6 +34,8 @@
     "@types/react": "^17.0.4"
   },
   "husky": {
-    "precommit": "tsc && "
+    "hooks": {
+      "pre-commit": "tsc && yarn validate"
+    }
   }
 }
