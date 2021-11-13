@@ -35,7 +35,7 @@ export default function MockComponent() {
   "index.tsx": "export { default } from './MockComponent';
 ",
   "messages.ts": "import { defineMessages } from 'react-intl';
-    
+
 export default defineMessages({})",
 }
 `;
@@ -50,7 +50,8 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;",
+export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.tsx": "import React from 'react';
 
 
@@ -77,7 +78,8 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;",
+export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.tsx": "import React from 'react';
 
 import { useIntl } from 'react-intl'
@@ -93,7 +95,7 @@ export default function MockComponent() {
   "index.tsx": "export { default } from './MockComponent';
 ",
   "messages.ts": "import { defineMessages } from 'react-intl';
-    
+
 export default defineMessages({})",
 }
 `;
@@ -135,7 +137,7 @@ export default function MockComponent() {
   "index.tsx": "export { default } from './MockComponent';
 ",
   "messages.ts": "import { defineMessages } from 'react-intl';
-    
+
 export default defineMessages({})",
 }
 `;
@@ -151,7 +153,8 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;",
+export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.tsx": "import React from 'react';
 import Styles from './MockComponent.module.scss';
 
@@ -179,7 +182,8 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;",
+export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.tsx": "import React from 'react';
 import Styles from './MockComponent.module.scss';
 import { useIntl } from 'react-intl'
@@ -195,7 +199,7 @@ export default function MockComponent() {
   "index.tsx": "export { default } from './MockComponent';
 ",
   "messages.ts": "import { defineMessages } from 'react-intl';
-    
+
 export default defineMessages({})",
 }
 `;
@@ -235,8 +239,8 @@ import Component from './MockComponent';
 
 it('Should at least render :)', () => {
     render(<IntlProvider locale=\\"pt-br\\">
-        <Component/>
-    </IntlProvider>);
+            <Component/>
+        </IntlProvider>);
 })",
   "MockComponent.tsx": "import React from 'react';
 
@@ -253,7 +257,7 @@ export default function MockComponent() {
   "index.tsx": "export { default } from './MockComponent';
 ",
   "messages.ts": "import { defineMessages } from 'react-intl';
-    
+
 export default defineMessages({})",
 }
 `;
@@ -268,7 +272,8 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;",
+export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.test.tsx": "import React from 'react';
 import { render } from '@testing-library/react';
 
@@ -303,7 +308,8 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;",
+export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.test.tsx": "import React from 'react';
 import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
@@ -311,8 +317,8 @@ import { InitialImplementation as Component } from './MockComponent.stories';
 
 it('Should at least render :)', () => {
     render(<IntlProvider locale=\\"pt-br\\">
-        <Component/>
-    </IntlProvider>);
+            <Component/>
+        </IntlProvider>);
 })",
   "MockComponent.tsx": "import React from 'react';
 
@@ -329,7 +335,7 @@ export default function MockComponent() {
   "index.tsx": "export { default } from './MockComponent';
 ",
   "messages.ts": "import { defineMessages } from 'react-intl';
-    
+
 export default defineMessages({})",
 }
 `;
@@ -371,8 +377,8 @@ import Component from './MockComponent';
 
 it('Should at least render :)', () => {
     render(<IntlProvider locale=\\"pt-br\\">
-        <Component/>
-    </IntlProvider>);
+            <Component/>
+        </IntlProvider>);
 })",
   "MockComponent.tsx": "import React from 'react';
 import Styles from './MockComponent.module.scss';
@@ -389,7 +395,7 @@ export default function MockComponent() {
   "index.tsx": "export { default } from './MockComponent';
 ",
   "messages.ts": "import { defineMessages } from 'react-intl';
-    
+
 export default defineMessages({})",
 }
 `;
@@ -405,7 +411,8 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;",
+export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.test.tsx": "import React from 'react';
 import { render } from '@testing-library/react';
 
@@ -441,7 +448,8 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;",
+export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.test.tsx": "import React from 'react';
 import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
@@ -449,8 +457,8 @@ import { InitialImplementation as Component } from './MockComponent.stories';
 
 it('Should at least render :)', () => {
     render(<IntlProvider locale=\\"pt-br\\">
-        <Component/>
-    </IntlProvider>);
+            <Component/>
+        </IntlProvider>);
 })",
   "MockComponent.tsx": "import React from 'react';
 import Styles from './MockComponent.module.scss';
@@ -467,7 +475,7 @@ export default function MockComponent() {
   "index.tsx": "export { default } from './MockComponent';
 ",
   "messages.ts": "import { defineMessages } from 'react-intl';
-    
+
 export default defineMessages({})",
 }
 `;

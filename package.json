@@ -28,6 +28,7 @@
     "testRun": "cross-env DEBUG=* node ./dist/index.js",
     "prepublish": "tsc",
     "prevalidate": "tsc",
+    "test": "jest",
     "validate": "node ./dist/scripts/checkReleaseNotes.js"
   },
   "devDependencies": {

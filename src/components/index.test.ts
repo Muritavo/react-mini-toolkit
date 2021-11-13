@@ -1,5 +1,5 @@
-import { getDiagnosticsForText } from "./testUtils/utils";
-import { FEATURES, generateOutput, replaceUpperCaseBySpace } from "./component";
+import { getDiagnosticsForText } from "../testUtils/utils";
+import { FEATURES, generateOutput } from ".";
 
 const FEATURES_TO_TEST = FEATURES.map(f => f.name);
 
@@ -20,11 +20,7 @@ it.each(allFeatureCombinations)("Features for the component generation when feat
     const outputFiles = generateOutput("MockComponent", "A component to check that everything is fine", enabledFeatures as any);
     expect(outputFiles).toMatchSnapshot();
 
-    const outputResult = getDiagnosticsForText(outputFiles);
-    const errors = outputResult.filter(o => !JSON.stringify(o.messageText).includes(`MockComponent.module.scss'`));
+    const outputResult = getDiagnosticsForText(outputFiles).map(o => o.messageText);
+    const errors = outputResult.filter(o => !JSON.stringify(o).includes(`MockComponent.module.scss'`));
     expect(errors).toHaveLength(0);
-})
-
-it("Should replace with space", () => {
-    expect(replaceUpperCaseBySpace("SomeComponent")).toEqual("Some Component");
 })
