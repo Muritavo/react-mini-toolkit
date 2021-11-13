@@ -9,7 +9,8 @@ Execute the CLI with the command
 ```react-mini-toolkit help```
 
 # Release notes
-
+# v0.1.0
+Added README generation and also requesting BusinessRules related to the component
 # v0.0.5
 Fixed some documentation
 # v0.0.4
