@@ -1,4 +1,4 @@
-const specs: FeatureControl = {
+const specs: FeatureControl<"scss"> = {
   short: "SCSS (SCSS Modules)",
   name: "scss",
   checked: false,

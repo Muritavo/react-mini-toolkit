@@ -1,4 +1,4 @@
-const specs: FeatureControl = {
+const specs: FeatureControl<"intl"> = {
   short: "Intl messages",
   name: "intl",
   checked: false,

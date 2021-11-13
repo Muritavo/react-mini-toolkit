@@ -1,11 +1,13 @@
-const specification: FeatureControl = {
+const specification: FeatureControl<"tests"> = {
   short: "Tests (@testing-library/react)",
   name: "tests",
   checked: true,
   generateOutput: function generateTestsFile(
     componentName: string,
-    features: { [k in FeatureControl["name"]]: boolean }
+    features: { [k in AvailableFeatures]: boolean },
+    featureData: FeatureData
   ) {
+    const businessRules = featureData.documentation?.businessRules;
     const whereToImportTheComponentFrom = features.storybook
       ? `import { InitialImplementation as Component } from './${componentName}.stories';`
       : `import Component from './${componentName}';`;
@@ -19,9 +21,19 @@ import { render } from '@testing-library/react';
 ${features.intl ? "import { IntlProvider } from 'react-intl';" : ""}
 ${whereToImportTheComponentFrom}
 
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(${componentRender});
+}
+
 it('Should at least render :)', () => {
-    render(${componentRender});
-})`;
+    renderScreen({});
+})
+
+${
+  !!businessRules?.length
+    ? businessRules.map((r) => `it.todo("${r}");`).join("\n")
+    : ""
+}`;
     return {
       content,
       filename: `${componentName}.test.tsx`,

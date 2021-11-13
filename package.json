@@ -24,11 +24,13 @@
   },
   "scripts": {
     "build": "tsc",
+    "dev": "tsc --watch",
     "pretestRun": "tsc",
     "testRun": "cross-env DEBUG=* node ./dist/index.js",
     "prepublish": "tsc",
     "prevalidate": "tsc",
     "test": "jest",
+    "test:watch": "jest --watchAll",
     "validate": "node ./dist/scripts/checkReleaseNotes.js"
   },
   "devDependencies": {

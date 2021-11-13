@@ -9,11 +9,12 @@ import StorybookSpecs from "./storybook";
 
 const l = require("debug")("react-mini-toolkit");
 
-export const FEATURES: FeatureControl[] = [
+export const FEATURES: FeatureControl<AvailableFeatures>[] = [
   TestSpecs,
   SassSpecs,
   StorybookSpecs,
   IntlSpecs,
+  DocumentationSpecs,
 ];
 
 export default function createComponent() {
@@ -26,7 +27,7 @@ export default function createComponent() {
         name: "name",
         message: "What is the name of the component?",
         validate: (str) =>
-          /[a-zA-Z]+/.test(str)
+          /^[a-zA-Z]+$/.test(str)
             ? true
             : "The component name must have only letters",
       },
@@ -44,7 +45,7 @@ export default function createComponent() {
       },
     ])
     .then(
-      ({
+      async ({
         name: componentName,
         description: componentDescription,
         features: generationFeatures,
@@ -56,8 +57,20 @@ export default function createComponent() {
         const enabledFeatures = (
           generationFeatures as (keyof Features)[]
         ).reduce((r, f) => ({ ...r, [f]: true }), {} as Features);
+        const featureData = {} as FeatureData;
+        for (let specs of FEATURES) {
+          if (enabledFeatures[specs.name] && specs.inquireData) {
+            let data!: FeatureData[keyof FeatureData];
+            switch (specs.name) {
+              case "documentation":
+                data = await specs.inquireData();
+                break;
+            }
+            featureData[specs.name as keyof FeatureData] = data;
+          }
+        }
         Object.entries(
-          generateOutput(componentName, componentDescription, enabledFeatures)
+          generateOutput(componentName, componentDescription, enabledFeatures, featureData)
         ).forEach(([filename, fileContent]) => {
           writeFileSync(join(componentFolder, filename), fileContent);
         });
@@ -70,7 +83,8 @@ type Features = { [key in typeof FEATURES[number]["name"]]: boolean };
 export function generateOutput(
   componentName: string,
   componentDescription: string,
-  features: Features
+  features: Features,
+  featureData: FeatureData
 ) {
   const files: { [filename: string]: string } = {
     "index.tsx": `export { default } from './${componentName}';\n`,
@@ -83,10 +97,15 @@ export function generateOutput(
 
   for (let specs of FEATURES) {
     if (features[specs.name as keyof Features]) {
-      let output: ReturnType<FeatureControl["generateOutput"]>;
+      let output: ReturnType<
+        FeatureControl<AvailableFeatures>["generateOutput"]
+      >;
       switch (specs.name) {
         case "tests":
-          output = specs.generateOutput(componentName, features);
+          output = specs.generateOutput(componentName, features, featureData);
+          break;
+        case "documentation":
+          output = specs.generateOutput(componentName, componentDescription, featureData);
           break;
         case "storybook":
         case "scss":

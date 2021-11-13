@@ -2,7 +2,7 @@ export function replaceUpperCaseBySpace(componentName: string) {
   return componentName.replace(/(?=[A-Z])/g, " ").trim();
 }
 
-const specs: FeatureControl = {
+const specs: FeatureControl<"storybook"> = {
   short: "Storybook",
   name: "storybook",
   checked: false,
