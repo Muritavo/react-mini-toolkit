@@ -605,8 +605,12 @@ import { render } from '@testing-library/react';
 
 import Component from './MockComponent';
 
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
 it('Should at least render :)', () => {
-    render(<Component/>);
+    renderScreen({});
 })
 
 ",
@@ -639,8 +643,12 @@ import { render } from '@testing-library/react';
 
 import Component from './MockComponent';
 
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
 it('Should at least render :)', () => {
-    render(<Component/>);
+    renderScreen({});
 })
 
 it.todo(\\"SOME MOCKED BUSINESS RULE\\");
@@ -685,10 +693,14 @@ import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import Component from './MockComponent';
 
-it('Should at least render :)', () => {
-    render(<IntlProvider locale=\\"pt-br\\">
-            <Component/>
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
         </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
 })
 
 ",
@@ -725,10 +737,14 @@ import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import Component from './MockComponent';
 
-it('Should at least render :)', () => {
-    render(<IntlProvider locale=\\"pt-br\\">
-            <Component/>
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
         </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
 })
 
 it.todo(\\"SOME MOCKED BUSINESS RULE\\");
@@ -787,8 +803,12 @@ import { render } from '@testing-library/react';
 
 import { InitialImplementation as Component } from './MockComponent.stories';
 
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
 it('Should at least render :)', () => {
-    render(<Component/>);
+    renderScreen({});
 })
 
 ",
@@ -831,8 +851,12 @@ import { render } from '@testing-library/react';
 
 import { InitialImplementation as Component } from './MockComponent.stories';
 
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
 it('Should at least render :)', () => {
-    render(<Component/>);
+    renderScreen({});
 })
 
 it.todo(\\"SOME MOCKED BUSINESS RULE\\");
@@ -887,10 +911,14 @@ import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import { InitialImplementation as Component } from './MockComponent.stories';
 
-it('Should at least render :)', () => {
-    render(<IntlProvider locale=\\"pt-br\\">
-            <Component/>
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
         </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
 })
 
 ",
@@ -937,10 +965,14 @@ import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import { InitialImplementation as Component } from './MockComponent.stories';
 
-it('Should at least render :)', () => {
-    render(<IntlProvider locale=\\"pt-br\\">
-            <Component/>
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
         </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
 })
 
 it.todo(\\"SOME MOCKED BUSINESS RULE\\");
@@ -990,8 +1022,12 @@ import { render } from '@testing-library/react';
 
 import Component from './MockComponent';
 
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
 it('Should at least render :)', () => {
-    render(<Component/>);
+    renderScreen({});
 })
 
 ",
@@ -1025,8 +1061,12 @@ import { render } from '@testing-library/react';
 
 import Component from './MockComponent';
 
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
 it('Should at least render :)', () => {
-    render(<Component/>);
+    renderScreen({});
 })
 
 it.todo(\\"SOME MOCKED BUSINESS RULE\\");
@@ -1072,10 +1112,14 @@ import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import Component from './MockComponent';
 
-it('Should at least render :)', () => {
-    render(<IntlProvider locale=\\"pt-br\\">
-            <Component/>
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
         </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
 })
 
 ",
@@ -1113,10 +1157,14 @@ import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import Component from './MockComponent';
 
-it('Should at least render :)', () => {
-    render(<IntlProvider locale=\\"pt-br\\">
-            <Component/>
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
         </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
 })
 
 it.todo(\\"SOME MOCKED BUSINESS RULE\\");
@@ -1176,8 +1224,12 @@ import { render } from '@testing-library/react';
 
 import { InitialImplementation as Component } from './MockComponent.stories';
 
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
 it('Should at least render :)', () => {
-    render(<Component/>);
+    renderScreen({});
 })
 
 ",
@@ -1221,8 +1273,12 @@ import { render } from '@testing-library/react';
 
 import { InitialImplementation as Component } from './MockComponent.stories';
 
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
 it('Should at least render :)', () => {
-    render(<Component/>);
+    renderScreen({});
 })
 
 it.todo(\\"SOME MOCKED BUSINESS RULE\\");
@@ -1278,10 +1334,14 @@ import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import { InitialImplementation as Component } from './MockComponent.stories';
 
-it('Should at least render :)', () => {
-    render(<IntlProvider locale=\\"pt-br\\">
-            <Component/>
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
         </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
 })
 
 ",
@@ -1329,10 +1389,14 @@ import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import { InitialImplementation as Component } from './MockComponent.stories';
 
-it('Should at least render :)', () => {
-    render(<IntlProvider locale=\\"pt-br\\">
-            <Component/>
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
         </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
 })
 
 it.todo(\\"SOME MOCKED BUSINESS RULE\\");
