@@ -13,9 +13,9 @@ const specification: FeatureControl<"tests"> = {
       : `import Component from './${componentName}';`;
     const componentRender = features.intl
       ? `<IntlProvider locale="pt-br">
-            <Component/>
+            <Component {...props}/>
         </IntlProvider>`
-      : `<Component/>`;
+      : `<Component {...props}/>`;
     const content = `import React from 'react';
 import { render } from '@testing-library/react';
 ${features.intl ? "import { IntlProvider } from 'react-intl';" : ""}
