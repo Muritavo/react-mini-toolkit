@@ -19,8 +19,8 @@ const allFeatureCombinations = allCombinations.map((combination) =>
 
 function buildMockedFeatureData(featureMap: FeatureMap) {
   const map: FeatureData = {};
-  if (featureMap.documentation)
-    map.documentation = {
+  if (featureMap.tests)
+    map.tests = {
       businessRules: ["SOME MOCKED BUSINESS RULE", "ANOTHER ONE"],
     };
   return map;

@@ -24,7 +24,7 @@ type FeatureControl<E extends AvailableFeatures> = {
 };
 
 type FeatureData = {
-  test?: {
+  tests?: {
     businessRules: string[]
   }
 }

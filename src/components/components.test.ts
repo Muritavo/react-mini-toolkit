@@ -7,14 +7,13 @@ it("Should generate documentation correctly", () => {
     "MockComponent",
     "A component to check that everything is fine",
     {
-      documentation: true,
       intl: false,
       scss: false,
       storybook: false,
       tests: true,
     },
     {
-      documentation: {
+      tests: {
         businessRules: [MOCK_BUSINESS_RULE],
       },
     }

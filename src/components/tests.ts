@@ -9,7 +9,7 @@ const specification: FeatureControl<"tests"> = {
     features: { [k in AvailableFeatures]: boolean },
     featureData: FeatureData
   ) {
-    const businessRules = featureData.test?.businessRules;
+    const businessRules = featureData.tests?.businessRules;
     const whereToImportTheComponentFrom = features.storybook
       ? `import { InitialImplementation as Component } from './${componentName}.stories';`
       : `import Component from './${componentName}';`;
