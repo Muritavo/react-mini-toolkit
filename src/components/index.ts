@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { mkdirSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import TestSpecs from "./tests";
 import SassSpecs from "./scss";
@@ -75,10 +75,19 @@ export default function createComponent() {
             featureData
           )
         ).forEach(([filename, fileContent]) => {
-          writeFileSync(join(componentFolder, filename), fileContent);
+          writeOutputToDisk(componentFolder, filename, fileContent);
         });
       }
     );
+}
+
+export function writeOutputToDisk(
+  componentFolder: string,
+  filename: string,
+  fileContent: string
+) {
+  const fullpath = join(componentFolder, filename);
+  if (!existsSync(fullpath)) writeFileSync(fullpath, fileContent);
 }
 
 type Features = { [key in typeof FEATURES[number]["name"]]: boolean };
