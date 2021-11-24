@@ -1,4 +1,4 @@
-type AvailableFeatures = "storybook" | "intl" | "tests" | "scss" | "documentation";
+type AvailableFeatures = "storybook" | "intl" | "tests" | "scss";
 
 // The object that defines what is a feature
 type FeatureControl<E extends AvailableFeatures> = {
@@ -24,7 +24,7 @@ type FeatureControl<E extends AvailableFeatures> = {
 };
 
 type FeatureData = {
-  documentation?: {
+  test?: {
     businessRules: string[]
   }
 }

@@ -1,3 +1,5 @@
+import { prompt } from "inquirer";
+
 const specification: FeatureControl<"tests"> = {
   short: "Tests (@testing-library/react)",
   name: "tests",
@@ -7,7 +9,7 @@ const specification: FeatureControl<"tests"> = {
     features: { [k in AvailableFeatures]: boolean },
     featureData: FeatureData
   ) {
-    const businessRules = featureData.documentation?.businessRules;
+    const businessRules = featureData.test?.businessRules;
     const whereToImportTheComponentFrom = features.storybook
       ? `import { InitialImplementation as Component } from './${componentName}.stories';`
       : `import Component from './${componentName}';`;
@@ -37,6 +39,30 @@ ${
     return {
       content,
       filename: `${componentName}.test.tsx`,
+    };
+  },
+  inquireData: async function inquireTestsData() {
+    const businessRules: string[] = [];
+    let lastAnswer: string | undefined = undefined;
+    let firstTime = true;
+    do {
+      if (lastAnswer) businessRules.push(lastAnswer);
+      const result = await prompt([
+        {
+          message: firstTime
+            ? `The business rules this component should be covering ${require("chalk").green(
+                "(Click Enter/Return to finish)"
+              )}:\n   `
+            : " ",
+          name: "business-rule",
+          type: "input",
+        },
+      ]);
+      lastAnswer = result["business-rule"];
+      firstTime = false;
+    } while (lastAnswer !== "");
+    return {
+      businessRules,
     };
   },
 };

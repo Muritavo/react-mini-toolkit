@@ -2,7 +2,6 @@ import inquirer from "inquirer";
 import { mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import TestSpecs from "./tests";
-import DocumentationSpecs from "./documentation";
 import SassSpecs from "./scss";
 import IntlSpecs from "./intl";
 import StorybookSpecs from "./storybook";
@@ -14,7 +13,6 @@ export const FEATURES: FeatureControl<AvailableFeatures>[] = [
   SassSpecs,
   StorybookSpecs,
   IntlSpecs,
-  DocumentationSpecs,
 ];
 
 export default function createComponent() {
@@ -62,7 +60,7 @@ export default function createComponent() {
           if (enabledFeatures[specs.name] && specs.inquireData) {
             let data!: FeatureData[keyof FeatureData];
             switch (specs.name) {
-              case "documentation":
+              case "tests":
                 data = await specs.inquireData();
                 break;
             }
@@ -70,7 +68,12 @@ export default function createComponent() {
           }
         }
         Object.entries(
-          generateOutput(componentName, componentDescription, enabledFeatures, featureData)
+          generateOutput(
+            componentName,
+            componentDescription,
+            enabledFeatures,
+            featureData
+          )
         ).forEach(([filename, fileContent]) => {
           writeFileSync(join(componentFolder, filename), fileContent);
         });
@@ -103,9 +106,6 @@ export function generateOutput(
       switch (specs.name) {
         case "tests":
           output = specs.generateOutput(componentName, features, featureData);
-          break;
-        case "documentation":
-          output = specs.generateOutput(componentName, componentDescription, featureData);
           break;
         case "storybook":
         case "scss":
