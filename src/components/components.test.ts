@@ -18,9 +18,6 @@ it("Should generate documentation correctly", () => {
       },
     }
   );
-  const readmeOutput = outputFiles["README.md"];
   const testOutput = outputFiles["MockComponent.test.tsx"];
-  expect(readmeOutput).toBeDefined();
-  expect(readmeOutput).toContain(MOCK_BUSINESS_RULE);
   expect(testOutput).toContain(MOCK_BUSINESS_RULE);
 });
