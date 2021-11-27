@@ -50,7 +50,7 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
 InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.tsx": "import React from 'react';
 
@@ -78,7 +78,7 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
 InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.tsx": "import React from 'react';
 
@@ -153,7 +153,7 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
 InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.tsx": "import React from 'react';
 import Styles from './MockComponent.module.scss';
@@ -182,7 +182,7 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
 InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.tsx": "import React from 'react';
 import Styles from './MockComponent.module.scss';
@@ -286,7 +286,7 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
 InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.test.tsx": "import React from 'react';
 import { render } from '@testing-library/react';
@@ -329,7 +329,7 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
 InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.test.tsx": "import React from 'react';
 import { render } from '@testing-library/react';
@@ -453,7 +453,7 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
 InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.test.tsx": "import React from 'react';
 import { render } from '@testing-library/react';
@@ -497,7 +497,7 @@ export default {
     title: \\"Mock Component\\"
 }
 
-export const InitialImplementation = (...args: any) => <MockComponent {...args}/>;
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
 InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "MockComponent.test.tsx": "import React from 'react';
 import { render } from '@testing-library/react';

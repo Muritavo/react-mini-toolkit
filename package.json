@@ -1,6 +1,6 @@
 {
   "name": "@muritavo/react-mini-toolkit",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A toolkit with scripts of stuff I'm tired of copy/pasting or implementing from start",
   "main": "index.js",
   "repository": "git@github.com:Muritavo/react-mini-toolkit.git",
