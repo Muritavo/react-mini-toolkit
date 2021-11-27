@@ -15,7 +15,7 @@ export default {
     title: "${replaceUpperCaseBySpace(componentName)}"
 }
 
-export const InitialImplementation = (...args: any) => <${componentName} {...args}/>;
+export const InitialImplementation = (args: any) => <${componentName} {...args}/>;
 InitialImplementation.args = {} as Partial<React.ComponentProps<typeof ${componentName}>>`;
     return {
       filename: `${componentName}.stories.tsx`,
