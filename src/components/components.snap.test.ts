@@ -1,6 +1,11 @@
 import { getDiagnosticsForText } from "../testUtils/utils";
 import { FEATURES, generateOutput } from ".";
+import { GENERATION_MODEL } from "./tests";
+import { join } from "path";
 
+const mkdirSyncSpy = jest
+  .spyOn(require("fs"), "mkdirSync")
+  .mockImplementation(() => {});
 const FEATURES_TO_TEST = FEATURES.map((f) => f.name);
 
 const boolCombo = (size: number) => {
@@ -22,28 +27,50 @@ function buildMockedFeatureData(featureMap: FeatureMap) {
   if (featureMap.tests)
     map.tests = {
       businessRules: ["SOME MOCKED BUSINESS RULE", "ANOTHER ONE"],
+      model: "@cypress/react",
     };
   return map;
+}
+
+function testOutputWithFeatureData(
+  enabledFeaturesMap: any,
+  featureDataMap: FeatureData
+) {
+  const outputFiles = generateOutput(
+    "MockComponent",
+    "A component to check that everything is fine",
+    enabledFeaturesMap,
+    featureDataMap,
+    join("/root/path/to/project/src/folder/", "MockComponent")
+  );
+  expect(outputFiles).toMatchSnapshot();
+
+  const outputResult = getDiagnosticsForText(outputFiles).map(
+    (o) => o.messageText
+  );
+
+  const errors = outputResult.filter((o) => {
+    const a = JSON.stringify(o);
+    return (
+      !a.includes(`MockComponent.module.scss'`) &&
+      !a.includes("README.md") &&
+      !a.includes("'cypress'") &&
+      !a.includes("'Cypress'") &&
+      !a.includes("'JQuery'")
+    );
+  });
+  expect(errors).toHaveLength(0);
 }
 
 it.each(allFeatureCombinations)(
   "Features for the component generation when features are enabled as %s",
   (enabledFeatures) => {
-    const outputFiles = generateOutput(
-      "MockComponent",
-      "A component to check that everything is fine",
-      enabledFeatures as any,
-      buildMockedFeatureData(enabledFeatures)
-    );
-    expect(outputFiles).toMatchSnapshot();
-
-    const outputResult = getDiagnosticsForText(outputFiles).map(
-      (o) => o.messageText
-    );
-    const errors = outputResult.filter((o) => {
-      const a = JSON.stringify(o);
-      !a.includes(`MockComponent.module.scss'`) && !a.includes("README.md");
-    });
-    expect(errors).toHaveLength(0);
+    const featureData = buildMockedFeatureData(enabledFeatures);
+    if (enabledFeatures.tests) {
+      GENERATION_MODEL.forEach((model) => {
+        featureData.tests!.model = model.type;
+        testOutputWithFeatureData(enabledFeatures, featureData);
+      });
+    } else testOutputWithFeatureData(enabledFeatures, featureData);
   }
 );

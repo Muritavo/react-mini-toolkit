@@ -18,16 +18,15 @@ type FeatureControl<E extends AvailableFeatures> = {
    * T = When generating output, it can require more data (e.g. The tests output is bound to the documentation data)
    * @returns The definition of the file and content
    */
-  generateOutput: (
-    ...args: any[]
-  ) => { filename: string; content: string };
+  generateOutput: (componentFolder: string, ...args: any[]) => { filepath: string; content: string };
 };
 
 type FeatureData = {
   tests?: {
-    businessRules: string[]
-  }
-}
+    model: typeof import("./components/tests")["GENERATION_MODEL"][number]["type"];
+    businessRules: string[];
+  };
+};
 type FeatureMap = {
   [k in AvailableFeatures]: boolean;
-}
+};

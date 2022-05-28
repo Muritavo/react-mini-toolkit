@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
-import { join } from "path";
+import { join, resolve } from "path";
 import TestSpecs from "./tests";
 import SassSpecs from "./scss";
 import IntlSpecs from "./intl";
@@ -16,7 +16,7 @@ export const FEATURES: FeatureControl<AvailableFeatures>[] = [
 ];
 
 export default function createComponent() {
-  const rootFolder = process.env.INIT_CWD || "./";
+  const rootFolder = process.env.INIT_CWD || resolve("./");
   l("Running at", rootFolder);
   inquirer
     .prompt([
@@ -72,22 +72,21 @@ export default function createComponent() {
             componentName,
             componentDescription,
             enabledFeatures,
-            featureData
+            featureData,
+            componentFolder
           )
         ).forEach(([filename, fileContent]) => {
-          writeOutputToDisk(componentFolder, filename, fileContent);
+          writeOutputToDisk(filename, fileContent);
         });
       }
     );
 }
 
 export function writeOutputToDisk(
-  componentFolder: string,
-  filename: string,
+  filepath: string,
   fileContent: string
 ) {
-  const fullpath = join(componentFolder, filename);
-  if (!existsSync(fullpath)) writeFileSync(fullpath, fileContent);
+  if (!existsSync(filepath)) writeFileSync(filepath, fileContent);
 }
 
 type Features = { [key in typeof FEATURES[number]["name"]]: boolean };
@@ -96,11 +95,12 @@ export function generateOutput(
   componentName: string,
   componentDescription: string,
   features: Features,
-  featureData: FeatureData
+  featureData: FeatureData,
+  componentFolder: string
 ) {
   const files: { [filename: string]: string } = {
-    "index.tsx": `export { default } from './${componentName}';\n`,
-    [`${componentName}.tsx`]: generateMainFile(
+    [join(componentFolder, "index.tsx")]: `export { default } from './${componentName}';\n`,
+    [join(componentFolder, `${componentName}.tsx`)]: generateMainFile(
       componentName,
       componentDescription,
       features
@@ -114,17 +114,17 @@ export function generateOutput(
       >;
       switch (specs.name) {
         case "tests":
-          output = specs.generateOutput(componentName, features, featureData);
+          output = specs.generateOutput(componentFolder, componentName, features, featureData);
           break;
         case "storybook":
         case "scss":
-          output = specs.generateOutput(componentName);
+          output = specs.generateOutput(componentFolder, componentName);
           break;
         default:
-          output = specs.generateOutput();
+          output = specs.generateOutput(componentFolder);
           break;
       }
-      files[output.filename] = output.content;
+      files[output.filepath] = output.content;
     }
   }
 
