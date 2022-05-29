@@ -9,6 +9,8 @@ Execute the CLI with the command
 ```react-mini-toolkit help```
 
 # Release notes
+# v0.2.0
+Adding support for cypress testing
 # v0.1.1
 Spreading props to test render
 # v0.1.0
