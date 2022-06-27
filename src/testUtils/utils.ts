@@ -25,6 +25,7 @@ export function getDiagnosticsForText(files: { [filename: string]: string }) {
     jsx: ts.JsxEmit.ReactJSX,
     esModuleInterop: true,
     baseUrl: "/root/path/to/project/src",
+    skipLibCheck: true
   };
   const nativeHost = ts.createCompilerHost(options);
   function fileIsMocked(filePath: string) {

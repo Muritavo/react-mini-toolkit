@@ -240,7 +240,7 @@ export default function MockComponent() {
 exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: false, intl: false } 2`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from '@cypress/react';
+import { mount } from 'cypress/react';
 
 import Component from 'folder/MockComponent/MockComponent';
 
@@ -312,7 +312,7 @@ export default defineMessages({})",
 exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: false, intl: true } 2`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from '@cypress/react';
+import { mount } from 'cypress/react';
 import { IntlProvider } from 'react-intl';
 import Component from 'folder/MockComponent/MockComponent';
 
@@ -394,7 +394,7 @@ export default function MockComponent() {
 exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: true, intl: false } 2`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from '@cypress/react';
+import { mount } from 'cypress/react';
 
 import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
 
@@ -486,7 +486,7 @@ export default defineMessages({})",
 exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: true, intl: true } 2`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from '@cypress/react';
+import { mount } from 'cypress/react';
 import { IntlProvider } from 'react-intl';
 import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
 
@@ -569,7 +569,7 @@ export default function MockComponent() {
 exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: false, intl: false } 2`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from '@cypress/react';
+import { mount } from 'cypress/react';
 
 import Component from 'folder/MockComponent/MockComponent';
 
@@ -643,7 +643,7 @@ export default defineMessages({})",
 exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: false, intl: true } 2`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from '@cypress/react';
+import { mount } from 'cypress/react';
 import { IntlProvider } from 'react-intl';
 import Component from 'folder/MockComponent/MockComponent';
 
@@ -727,7 +727,7 @@ export default function MockComponent() {
 exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: true, intl: false } 2`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from '@cypress/react';
+import { mount } from 'cypress/react';
 
 import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
 
@@ -821,7 +821,7 @@ export default defineMessages({})",
 exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: true, intl: true } 2`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from '@cypress/react';
+import { mount } from 'cypress/react';
 import { IntlProvider } from 'react-intl';
 import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
 

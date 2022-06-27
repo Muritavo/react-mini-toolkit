@@ -34,7 +34,7 @@ const specification: FeatureControl<"tests"> = {
           };
         case "@cypress/react":
           return {
-            import: `import { mount } from '@cypress/react';`,
+            import: `import { mount } from 'cypress/react';`,
             callToRender: "mount",
             callToTest: "it",
             importComp: `${componentFolder.split("src/")[1]}/${componentName}`,
