@@ -12,7 +12,7 @@ it("Should generate documentation correctly", () => {
     "A component to check that everything is fine",
     {
       intl: false,
-      scss: false,
+      styles: false,
       storybook: false,
       tests: true,
     },

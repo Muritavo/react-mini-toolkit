@@ -1,9 +1,7 @@
-type AvailableFeatures = "storybook" | "intl" | "tests" | "scss";
+type AvailableFeatures = "storybook" | "intl" | "tests" | "styles";
 
 // The object that defines what is a feature
 type FeatureControl<E extends AvailableFeatures> = {
-  /** The short name of the feature when showing in the inquirer UI */
-  short: string;
   /** The full name with more details about the feature */
   name: E;
   /** Defines if it should be preselected */
@@ -26,6 +24,9 @@ type FeatureData = {
     model: typeof import("./components/tests")["GENERATION_MODEL"][number]["type"];
     businessRules: string[];
   };
+  styles?: {
+    model: typeof import("./components/styles")['STYLES_GENERATION_MODEL'][number]['type']
+  }
 };
 type FeatureMap = {
   [k in AvailableFeatures]: boolean;

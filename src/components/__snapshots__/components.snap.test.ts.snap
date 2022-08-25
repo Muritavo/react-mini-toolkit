@@ -1,16 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Features for the component generation when features are enabled as { tests: false, scss: false, storybook: false, intl: false } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: false, styles: false, storybook: false, intl: false } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-
-
 
 /**
  * A component to check that everything is fine
  **/
 export default function MockComponent() {
-    
     return <>MockComponent</>;
 }",
   "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
@@ -18,10 +15,9 @@ export default function MockComponent() {
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: false, scss: false, storybook: false, intl: true } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: false, styles: false, storybook: false, intl: true } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-
 import { useIntl } from 'react-intl'
 import messages from './messages'
 
@@ -40,7 +36,7 @@ export default defineMessages({})",
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: false, scss: false, storybook: true, intl: false } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: false, styles: false, storybook: true, intl: false } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
 import MockComponent from \\"./MockComponent\\";
@@ -54,13 +50,10 @@ export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
 InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
 
-
-
 /**
  * A component to check that everything is fine
  **/
 export default function MockComponent() {
-    
     return <>MockComponent</>;
 }",
   "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
@@ -68,7 +61,7 @@ export default function MockComponent() {
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: false, scss: false, storybook: true, intl: true } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: false, styles: false, storybook: true, intl: true } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
 import MockComponent from \\"./MockComponent\\";
@@ -81,7 +74,6 @@ export default {
 export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
 InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-
 import { useIntl } from 'react-intl'
 import messages from './messages'
 
@@ -100,18 +92,16 @@ export default defineMessages({})",
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: false, scss: true, storybook: false, intl: false } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: false, intl: false } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
 import Styles from './MockComponent.module.scss';
 
-
 /**
  * A component to check that everything is fine
  **/
 export default function MockComponent() {
-    
     return <>MockComponent</>;
 }",
   "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
@@ -119,7 +109,68 @@ export default function MockComponent() {
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: false, scss: true, storybook: false, intl: true } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: false, intl: false } 2`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: false, intl: false } 3`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import Styles from './MockComponent.module.scss';
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: false, intl: false } 4`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: false, intl: true } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
@@ -142,7 +193,86 @@ export default defineMessages({})",
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: false, scss: true, storybook: true, intl: false } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: false, intl: true } 2`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: false, intl: true } 3`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import Styles from './MockComponent.module.scss';
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: false, intl: true } 4`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: true, intl: false } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
@@ -158,12 +288,10 @@ InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockCompo
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
 import Styles from './MockComponent.module.scss';
 
-
 /**
  * A component to check that everything is fine
  **/
 export default function MockComponent() {
-    
     return <>MockComponent</>;
 }",
   "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
@@ -171,7 +299,98 @@ export default function MockComponent() {
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: false, scss: true, storybook: true, intl: true } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: true, intl: false } 2`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: true, intl: false } 3`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import Styles from './MockComponent.module.scss';
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: true, intl: false } 4`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: true, intl: true } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
@@ -204,7 +423,116 @@ export default defineMessages({})",
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: false, intl: false } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: true, intl: true } 2`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: true, intl: true } 3`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import Styles from './MockComponent.module.scss';
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: false, styles: true, storybook: true, intl: true } 4`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: false, intl: false } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
 import { render } from '@testing-library/react';
@@ -223,13 +551,10 @@ it.todo(\\"SOME MOCKED BUSINESS RULE\\");
 it.todo(\\"ANOTHER ONE\\");",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
 
-
-
 /**
  * A component to check that everything is fine
  **/
 export default function MockComponent() {
-    
     return <>MockComponent</>;
 }",
   "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
@@ -237,7 +562,37 @@ export default function MockComponent() {
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: false, intl: false } 2`] = `
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: false, intl: false } 2`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { render } from '@testing-library/react';
+
+import Component from './MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it.todo(\\"SOME MOCKED BUSINESS RULE\\");
+it.todo(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: false, intl: false } 3`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
 import { mount } from 'cypress/react';
@@ -256,13 +611,10 @@ it(\\"SOME MOCKED BUSINESS RULE\\");
 it(\\"ANOTHER ONE\\");",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
 
-
-
 /**
  * A component to check that everything is fine
  **/
 export default function MockComponent() {
-    
     return <>MockComponent</>;
 }",
   "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
@@ -270,7 +622,37 @@ export default function MockComponent() {
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: false, intl: true } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: false, intl: false } 4`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+
+import Component from 'folder/MockComponent/MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<Component {...props}/>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: false, intl: true } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
 import { render } from '@testing-library/react';
@@ -290,7 +672,6 @@ it('Should at least render :)', () => {
 it.todo(\\"SOME MOCKED BUSINESS RULE\\");
 it.todo(\\"ANOTHER ONE\\");",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-
 import { useIntl } from 'react-intl'
 import messages from './messages'
 
@@ -309,7 +690,45 @@ export default defineMessages({})",
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: false, intl: true } 2`] = `
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: false, intl: true } 2`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { render } from '@testing-library/react';
+import { IntlProvider } from 'react-intl';
+import Component from './MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it.todo(\\"SOME MOCKED BUSINESS RULE\\");
+it.todo(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: false, intl: true } 3`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
 import { mount } from 'cypress/react';
@@ -329,7 +748,6 @@ it('Should at least render :)', () => {
 it(\\"SOME MOCKED BUSINESS RULE\\");
 it(\\"ANOTHER ONE\\");",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-
 import { useIntl } from 'react-intl'
 import messages from './messages'
 
@@ -348,7 +766,45 @@ export default defineMessages({})",
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: true, intl: false } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: false, intl: true } 4`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+import { IntlProvider } from 'react-intl';
+import Component from 'folder/MockComponent/MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: true, intl: false } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
 import MockComponent from \\"./MockComponent\\";
@@ -377,13 +833,10 @@ it.todo(\\"SOME MOCKED BUSINESS RULE\\");
 it.todo(\\"ANOTHER ONE\\");",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
 
-
-
 /**
  * A component to check that everything is fine
  **/
 export default function MockComponent() {
-    
     return <>MockComponent</>;
 }",
   "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
@@ -391,298 +844,8 @@ export default function MockComponent() {
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: true, intl: false } 2`] = `
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: true, intl: false } 2`] = `
 Object {
-  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from 'cypress/react';
-
-import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
-
-function renderScreen(props: React.ComponentProps<typeof Component>) {
-  return mount(<Component {...props}/>);
-}
-
-it('Should at least render :)', () => {
-    renderScreen({});
-})
-
-it(\\"SOME MOCKED BUSINESS RULE\\");
-it(\\"ANOTHER ONE\\");",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
-import MockComponent from \\"./MockComponent\\";
-    
-export default {
-    component: MockComponent,
-    title: \\"Mock Component\\"
-}
-
-export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
-InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-
-
-
-/**
- * A component to check that everything is fine
- **/
-export default function MockComponent() {
-    
-    return <>MockComponent</>;
-}",
-  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
-",
-}
-`;
-
-exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: true, intl: true } 1`] = `
-Object {
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
-import MockComponent from \\"./MockComponent\\";
-    
-export default {
-    component: MockComponent,
-    title: \\"Mock Component\\"
-}
-
-export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
-InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { render } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
-import { InitialImplementation as Component } from './MockComponent.stories';
-
-function renderScreen(props: React.ComponentProps<typeof Component>) {
-  return render(<IntlProvider locale=\\"pt-br\\">
-            <Component {...props}/>
-        </IntlProvider>);
-}
-
-it('Should at least render :)', () => {
-    renderScreen({});
-})
-
-it.todo(\\"SOME MOCKED BUSINESS RULE\\");
-it.todo(\\"ANOTHER ONE\\");",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-
-import { useIntl } from 'react-intl'
-import messages from './messages'
-
-/**
- * A component to check that everything is fine
- **/
-export default function MockComponent() {
-    const { formatMessage } = useIntl();
-    return <>MockComponent</>;
-}",
-  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
-",
-  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
-
-export default defineMessages({})",
-}
-`;
-
-exports[`Features for the component generation when features are enabled as { tests: true, scss: false, storybook: true, intl: true } 2`] = `
-Object {
-  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from 'cypress/react';
-import { IntlProvider } from 'react-intl';
-import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
-
-function renderScreen(props: React.ComponentProps<typeof Component>) {
-  return mount(<IntlProvider locale=\\"pt-br\\">
-            <Component {...props}/>
-        </IntlProvider>);
-}
-
-it('Should at least render :)', () => {
-    renderScreen({});
-})
-
-it(\\"SOME MOCKED BUSINESS RULE\\");
-it(\\"ANOTHER ONE\\");",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
-import MockComponent from \\"./MockComponent\\";
-    
-export default {
-    component: MockComponent,
-    title: \\"Mock Component\\"
-}
-
-export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
-InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-
-import { useIntl } from 'react-intl'
-import messages from './messages'
-
-/**
- * A component to check that everything is fine
- **/
-export default function MockComponent() {
-    const { formatMessage } = useIntl();
-    return <>MockComponent</>;
-}",
-  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
-",
-  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
-
-export default defineMessages({})",
-}
-`;
-
-exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: false, intl: false } 1`] = `
-Object {
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { render } from '@testing-library/react';
-
-import Component from './MockComponent';
-
-function renderScreen(props: React.ComponentProps<typeof Component>) {
-  return render(<Component {...props}/>);
-}
-
-it('Should at least render :)', () => {
-    renderScreen({});
-})
-
-it.todo(\\"SOME MOCKED BUSINESS RULE\\");
-it.todo(\\"ANOTHER ONE\\");",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-import Styles from './MockComponent.module.scss';
-
-
-/**
- * A component to check that everything is fine
- **/
-export default function MockComponent() {
-    
-    return <>MockComponent</>;
-}",
-  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
-",
-}
-`;
-
-exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: false, intl: false } 2`] = `
-Object {
-  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from 'cypress/react';
-
-import Component from 'folder/MockComponent/MockComponent';
-
-function renderScreen(props: React.ComponentProps<typeof Component>) {
-  return mount(<Component {...props}/>);
-}
-
-it('Should at least render :)', () => {
-    renderScreen({});
-})
-
-it(\\"SOME MOCKED BUSINESS RULE\\");
-it(\\"ANOTHER ONE\\");",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-import Styles from './MockComponent.module.scss';
-
-
-/**
- * A component to check that everything is fine
- **/
-export default function MockComponent() {
-    
-    return <>MockComponent</>;
-}",
-  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
-",
-}
-`;
-
-exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: false, intl: true } 1`] = `
-Object {
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { render } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
-import Component from './MockComponent';
-
-function renderScreen(props: React.ComponentProps<typeof Component>) {
-  return render(<IntlProvider locale=\\"pt-br\\">
-            <Component {...props}/>
-        </IntlProvider>);
-}
-
-it('Should at least render :)', () => {
-    renderScreen({});
-})
-
-it.todo(\\"SOME MOCKED BUSINESS RULE\\");
-it.todo(\\"ANOTHER ONE\\");",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-import Styles from './MockComponent.module.scss';
-import { useIntl } from 'react-intl'
-import messages from './messages'
-
-/**
- * A component to check that everything is fine
- **/
-export default function MockComponent() {
-    const { formatMessage } = useIntl();
-    return <>MockComponent</>;
-}",
-  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
-",
-  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
-
-export default defineMessages({})",
-}
-`;
-
-exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: false, intl: true } 2`] = `
-Object {
-  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
-import { mount } from 'cypress/react';
-import { IntlProvider } from 'react-intl';
-import Component from 'folder/MockComponent/MockComponent';
-
-function renderScreen(props: React.ComponentProps<typeof Component>) {
-  return mount(<IntlProvider locale=\\"pt-br\\">
-            <Component {...props}/>
-        </IntlProvider>);
-}
-
-it('Should at least render :)', () => {
-    renderScreen({});
-})
-
-it(\\"SOME MOCKED BUSINESS RULE\\");
-it(\\"ANOTHER ONE\\");",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-import Styles from './MockComponent.module.scss';
-import { useIntl } from 'react-intl'
-import messages from './messages'
-
-/**
- * A component to check that everything is fine
- **/
-export default function MockComponent() {
-    const { formatMessage } = useIntl();
-    return <>MockComponent</>;
-}",
-  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
-",
-  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
-
-export default defineMessages({})",
-}
-`;
-
-exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: true, intl: false } 1`] = `
-Object {
-  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
 import MockComponent from \\"./MockComponent\\";
     
@@ -709,14 +872,11 @@ it('Should at least render :)', () => {
 it.todo(\\"SOME MOCKED BUSINESS RULE\\");
 it.todo(\\"ANOTHER ONE\\");",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
-import Styles from './MockComponent.module.scss';
-
 
 /**
  * A component to check that everything is fine
  **/
 export default function MockComponent() {
-    
     return <>MockComponent</>;
 }",
   "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
@@ -724,7 +884,676 @@ export default function MockComponent() {
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: true, intl: false } 2`] = `
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: true, intl: false } 3`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+
+import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<Component {...props}/>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: true, intl: false } 4`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+
+import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<Component {...props}/>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: true, intl: true } 1`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { render } from '@testing-library/react';
+import { IntlProvider } from 'react-intl';
+import { InitialImplementation as Component } from './MockComponent.stories';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it.todo(\\"SOME MOCKED BUSINESS RULE\\");
+it.todo(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: true, intl: true } 2`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { render } from '@testing-library/react';
+import { IntlProvider } from 'react-intl';
+import { InitialImplementation as Component } from './MockComponent.stories';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it.todo(\\"SOME MOCKED BUSINESS RULE\\");
+it.todo(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: true, intl: true } 3`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+import { IntlProvider } from 'react-intl';
+import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: false, storybook: true, intl: true } 4`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+import { IntlProvider } from 'react-intl';
+import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: false, intl: false } 1`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { render } from '@testing-library/react';
+
+import Component from './MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it.todo(\\"SOME MOCKED BUSINESS RULE\\");
+it.todo(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import Styles from './MockComponent.module.scss';
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: false, intl: false } 2`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { render } from '@testing-library/react';
+
+import Component from './MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it.todo(\\"SOME MOCKED BUSINESS RULE\\");
+it.todo(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: false, intl: false } 3`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+
+import Component from 'folder/MockComponent/MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<Component {...props}/>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import Styles from './MockComponent.module.scss';
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: false, intl: false } 4`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+
+import Component from 'folder/MockComponent/MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<Component {...props}/>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: false, intl: true } 1`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { render } from '@testing-library/react';
+import { IntlProvider } from 'react-intl';
+import Component from './MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it.todo(\\"SOME MOCKED BUSINESS RULE\\");
+it.todo(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import Styles from './MockComponent.module.scss';
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: false, intl: true } 2`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { render } from '@testing-library/react';
+import { IntlProvider } from 'react-intl';
+import Component from './MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it.todo(\\"SOME MOCKED BUSINESS RULE\\");
+it.todo(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: false, intl: true } 3`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+import { IntlProvider } from 'react-intl';
+import Component from 'folder/MockComponent/MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import Styles from './MockComponent.module.scss';
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: false, intl: true } 4`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+import { IntlProvider } from 'react-intl';
+import Component from 'folder/MockComponent/MockComponent';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: true, intl: false } 1`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { render } from '@testing-library/react';
+
+import { InitialImplementation as Component } from './MockComponent.stories';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it.todo(\\"SOME MOCKED BUSINESS RULE\\");
+it.todo(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import Styles from './MockComponent.module.scss';
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: true, intl: false } 2`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { render } from '@testing-library/react';
+
+import { InitialImplementation as Component } from './MockComponent.stories';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<Component {...props}/>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it.todo(\\"SOME MOCKED BUSINESS RULE\\");
+it.todo(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: true, intl: false } 3`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
 import { mount } from 'cypress/react';
@@ -755,12 +1584,10 @@ InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockCompo
   "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
 import Styles from './MockComponent.module.scss';
 
-
 /**
  * A component to check that everything is fine
  **/
 export default function MockComponent() {
-    
     return <>MockComponent</>;
 }",
   "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
@@ -768,7 +1595,54 @@ export default function MockComponent() {
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: true, intl: true } 1`] = `
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: true, intl: false } 4`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+
+import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<Component {...props}/>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: true, intl: true } 1`] = `
 Object {
   "/root/path/to/project/src/folder/MockComponent/MockComponent.module.scss": "",
   "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
@@ -818,7 +1692,62 @@ export default defineMessages({})",
 }
 `;
 
-exports[`Features for the component generation when features are enabled as { tests: true, scss: true, storybook: true, intl: true } 2`] = `
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: true, intl: true } 2`] = `
+Object {
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { render } from '@testing-library/react';
+import { IntlProvider } from 'react-intl';
+import { InitialImplementation as Component } from './MockComponent.stories';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return render(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it.todo(\\"SOME MOCKED BUSINESS RULE\\");
+it.todo(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: true, intl: true } 3`] = `
 Object {
   "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
 import { mount } from 'cypress/react';
@@ -857,6 +1786,61 @@ import messages from './messages'
  * A component to check that everything is fine
  **/
 export default function MockComponent() {
+    const { formatMessage } = useIntl();
+    return <>MockComponent</>;
+}",
+  "/root/path/to/project/src/folder/MockComponent/index.tsx": "export { default } from './MockComponent';
+",
+  "/root/path/to/project/src/folder/MockComponent/messages.ts": "import { defineMessages } from 'react-intl';
+
+export default defineMessages({})",
+}
+`;
+
+exports[`Features for the component generation when features are enabled as { tests: true, styles: true, storybook: true, intl: true } 4`] = `
+Object {
+  "/root/path/to/project/cypress/integration/folder/MockComponent/MockComponent.test.tsx": "import React from 'react';
+import { mount } from 'cypress/react';
+import { IntlProvider } from 'react-intl';
+import { InitialImplementation as Component } from 'folder/MockComponent/MockComponent.stories';
+
+function renderScreen(props: React.ComponentProps<typeof Component>) {
+  return mount(<IntlProvider locale=\\"pt-br\\">
+            <Component {...props}/>
+        </IntlProvider>);
+}
+
+it('Should at least render :)', () => {
+    renderScreen({});
+})
+
+it(\\"SOME MOCKED BUSINESS RULE\\");
+it(\\"ANOTHER ONE\\");",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.stories.tsx": "import React from 'react';
+import MockComponent from \\"./MockComponent\\";
+    
+export default {
+    component: MockComponent,
+    title: \\"Mock Component\\"
+}
+
+export const InitialImplementation = (args: any) => <MockComponent {...args}/>;
+InitialImplementation.args = {} as Partial<React.ComponentProps<typeof MockComponent>>",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.styles.tsx": "import { makeStyles } from '@material-ui/core';
+
+const useMockComponentStyles = makeStyles({});
+
+export default useMockComponentStyles;",
+  "/root/path/to/project/src/folder/MockComponent/MockComponent.tsx": "import React from 'react';
+import useMockComponentStyles from './MockComponent.styles'
+import { useIntl } from 'react-intl'
+import messages from './messages'
+
+/**
+ * A component to check that everything is fine
+ **/
+export default function MockComponent() {
+      const classes = useMockComponentStyles()
     const { formatMessage } = useIntl();
     return <>MockComponent</>;
 }",

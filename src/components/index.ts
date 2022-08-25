@@ -2,9 +2,11 @@ import inquirer from "inquirer";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join, resolve } from "path";
 import TestSpecs from "./tests";
-import SassSpecs from "./scss";
+import SassSpecs from "./styles";
 import IntlSpecs from "./intl";
 import StorybookSpecs from "./storybook";
+import { f } from "../utility/fileGenerator";
+import StylesBuilder from "../builder/styles";
 
 const l = require("debug")("react-mini-toolkit");
 
@@ -61,10 +63,10 @@ export default function createComponent() {
             let data!: FeatureData[keyof FeatureData];
             switch (specs.name) {
               case "tests":
-                data = await specs.inquireData();
+              case "styles":
+                featureData[specs.name] = await specs.inquireData();
                 break;
             }
-            featureData[specs.name as keyof FeatureData] = data;
           }
         }
         Object.entries(
@@ -103,7 +105,8 @@ export function generateOutput(
     [join(componentFolder, `${componentName}.tsx`)]: generateMainFile(
       componentName,
       componentDescription,
-      features
+      features,
+      featureData
     ),
   };
 
@@ -117,8 +120,10 @@ export function generateOutput(
           output = specs.generateOutput(componentFolder, componentName, features, featureData);
           break;
         case "storybook":
-        case "scss":
           output = specs.generateOutput(componentFolder, componentName);
+          break;
+        case "styles":
+          output = specs.generateOutput(componentFolder, componentName, featureData);
           break;
         default:
           output = specs.generateOutput(componentFolder);
@@ -134,22 +139,28 @@ export function generateOutput(
 function generateMainFile(
   componentName: string,
   componentDescription: string,
-  features: { [key in typeof FEATURES[number]["name"]]: boolean }
+  features: { [key in typeof FEATURES[number]["name"]]: boolean },
+  featuresConfig: FeatureData
 ) {
-  return `import React from 'react';
-${features.scss ? `import Styles from './${componentName}.module.scss';` : ""}
-${
-  features.intl
-    ? `import { useIntl } from 'react-intl'
-import messages from './messages'`
-    : ""
-}
+  const styleComponents = new StylesBuilder()
+    .withComponentName(componentName)
+    .withType(featuresConfig.styles?.model)
+    .withFeatureEnabled(features.styles)
+    .build();
 
+  return f(
+    "import React from 'react';",
+    styleComponents.import(),
+    features.intl ? `import { useIntl } from 'react-intl'
+import messages from './messages'` : undefined,
+    `
 /**
  * ${componentDescription}
  **/
-export default function ${componentName}() {
-    ${features.intl ? "const { formatMessage } = useIntl();" : ""}
-    return <>${componentName}</>;
-}`;
+export default function ${componentName}() {`,
+    styleComponents.componentBody(),
+    features.intl ? "    const { formatMessage } = useIntl();" : undefined,
+    `    return <>${componentName}</>;
+}`
+  )
 }

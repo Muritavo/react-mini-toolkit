@@ -14,7 +14,6 @@ export const GENERATION_MODEL = [
 ] as const;
 
 const specification: FeatureControl<"tests"> = {
-  short: "Tests (@testing-library/react)",
   name: "tests",
   checked: true,
   generateOutput: function generateTestsFile(

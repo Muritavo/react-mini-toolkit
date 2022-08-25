@@ -5,7 +5,6 @@ export function replaceUpperCaseBySpace(componentName: string) {
 }
 
 const specs: FeatureControl<"storybook"> = {
-  short: "Storybook",
   name: "storybook",
   checked: false,
   generateOutput: function generateStorybookFile(
