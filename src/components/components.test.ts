@@ -12,15 +12,19 @@ it("Should generate documentation correctly", () => {
     "A component to check that everything is fine",
     {
       intl: false,
-      scss: false,
+      styles: false,
       storybook: false,
       tests: true,
+      entry: true
     },
     {
       tests: {
         businessRules: [MOCK_BUSINESS_RULE],
         model: "@testing-library/react",
       },
+      entry: {
+        model: "compact"
+      }
     },
     componentFolder
   );

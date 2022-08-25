@@ -5,7 +5,7 @@ const resolveSpy = jest.spyOn(require("path"), "resolve");
 const mkdirSyncSpy = jest.spyOn(require("fs"), "mkdirSync");
 it("Should generate a different path", () => {
   resolveSpy.mockImplementationOnce(() => "root/path/to/project/src/folder/");
-  mkdirSyncSpy.mockImplementation(() => {});
+  mkdirSyncSpy.mockImplementation(() => { });
   const result = Tests.generateOutput(
     join("root/path/to/project/src/folder/", "TestComponent"),
     "TestComponent",
@@ -15,7 +15,10 @@ it("Should generate a different path", () => {
         businessRules: [],
         model: "@cypress/react",
       },
+      entry: {
+        model: "compact"
+      }
     } as FeatureData
-  );
+  ) as FileSpec;
   expect(result.filepath).toContain("cypress/integration");
 });
