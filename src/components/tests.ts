@@ -23,20 +23,21 @@ const specification: FeatureControl<"tests"> = {
     featureData: FeatureData
   ) {
     const whichLibraryToUse = (function () {
+      const componentSuffix = featureData.entry.model === "compact" || features.storybook === true ? "" : ".view";
       switch (featureData.tests?.model) {
         case "@testing-library/react":
           return {
             import: `import { render } from '@testing-library/react';`,
             callToRender: "render",
             callToTest: "it.todo",
-            importComp: `./${componentName}`,
+            importComp: `./${componentName}${componentSuffix}`,
           };
         case "@cypress/react":
           return {
             import: `import { mount } from 'cypress/react';`,
             callToRender: "mount",
             callToTest: "it",
-            importComp: `${componentFolder.split("src/")[1]}/${componentName}`,
+            importComp: `${componentFolder.split("src/")[1]}/${componentName}${componentSuffix}`,
           };
         default:
           throw new Error(
@@ -66,13 +67,12 @@ it('Should at least render :)', () => {
     renderScreen({});
 })
 
-${
-  !!businessRules?.length
-    ? businessRules
-        .map((r) => `${whichLibraryToUse.callToTest}("${r}");`)
-        .join("\n")
-    : ""
-}`;
+${!!businessRules?.length
+        ? businessRules
+          .map((r) => `${whichLibraryToUse.callToTest}("${r}");`)
+          .join("\n")
+        : ""
+      }`;
     const filename = (() => {
       switch (featureData.tests?.model) {
         case "@cypress/react":
@@ -112,8 +112,8 @@ ${
         {
           message: firstTime
             ? `The business rules this component should be covering ${require("chalk").green(
-                "(Click Enter/Return to finish)"
-              )}:\n   `
+              "(Click Enter/Return to finish)"
+            )}:\n   `
             : " ",
           name: "business-rule",
           type: "input",

@@ -15,6 +15,9 @@ it("Should generate a different path", () => {
         businessRules: [],
         model: "@cypress/react",
       },
+      entry: {
+        model: "compact"
+      }
     } as FeatureData
   ) as FileSpec;
   expect(result.filepath).toContain("cypress/integration");

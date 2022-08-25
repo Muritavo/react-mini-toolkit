@@ -3,6 +3,7 @@ import { FEATURES, generateOutput } from ".";
 import { GENERATION_MODEL } from "./tests";
 import { join } from "path";
 import { STYLES_GENERATION_MODEL } from "./styles";
+import { ENTRY_GENERATION_MODEL } from "./entry";
 
 const mkdirSyncSpy = jest
   .spyOn(require("fs"), "mkdirSync")
@@ -22,9 +23,9 @@ const allCombinations = boolCombo(FEATURES_TO_TEST.length);
 const allFeatureCombinations = allCombinations.map((combination) =>
   FEATURES_TO_TEST.reduce((r, key, i) => ({ ...r, [key]: combination[i] }), {})
 ) as FeatureMap[];
-const allDataCombinations = boolCombo([STYLES_GENERATION_MODEL, GENERATION_MODEL].length);
+const allDataCombinations = boolCombo([STYLES_GENERATION_MODEL, GENERATION_MODEL, ENTRY_GENERATION_MODEL].length);
 const allFeatureDataCombinations = allDataCombinations.map((combination) =>
-  ["styles", "tests"].reduce((r, key, i) => ({
+  ["styles", "tests", "entry"].reduce((r, key, i) => ({
     ...r, [key]: (() => {
       const i2 = combination[i] ? 1 : 0;
       switch (key) {
@@ -36,13 +37,19 @@ const allFeatureDataCombinations = allDataCombinations.map((combination) =>
           return {
             model: GENERATION_MODEL[i2].type
           }
+        case "entry":
+          return {
+            model: ENTRY_GENERATION_MODEL[i2].type
+          }
       }
     })()
   }), {})
 ) as FeatureData[];
 
 function buildMockedFeatureData(featureMap: FeatureMap) {
-  const map: FeatureData = {};
+  const map: FeatureData = {
+    entry: { model: "compact" }
+  };
   map.tests = {
     businessRules: ["SOME MOCKED BUSINESS RULE", "ANOTHER ONE"],
     model: "@cypress/react",
@@ -91,6 +98,7 @@ it.each(allFeatureCombinations)(
       for (let combination of allFeatureDataCombinations) {
         featureData.styles!.model = combination.styles!.model;
         featureData.tests!.model = combination.tests!.model;
+        featureData.entry!.model = combination.entry!.model;
         testOutputWithFeatureData(enabledFeatures, featureData);
       }
     else testOutputWithFeatureData(enabledFeatures, featureData);

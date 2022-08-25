@@ -9,10 +9,12 @@ const specs: FeatureControl<"storybook"> = {
   checked: false,
   generateOutput: function generateStorybookFile(
     componentFolder,
-    componentName: string
+    componentName: string,
+    featureData: FeatureData
   ) {
+    const componentSuffix = featureData.entry.model === "compact" ? "" : ".logic";
     const content = `import React from 'react';
-import ${componentName} from "./${componentName}";
+import ${componentName} from "./${componentName}${componentSuffix}";
     
 export default {
     component: ${componentName},

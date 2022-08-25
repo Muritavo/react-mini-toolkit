@@ -29,6 +29,9 @@ type FeatureData = {
   styles?: {
     model: typeof import("./components/styles")['STYLES_GENERATION_MODEL'][number]['type']
   }
+  entry: {
+    model: typeof import("./components/entry")['ENTRY_GENERATION_MODEL'][number]['type']
+  }
 };
 type FeatureMap = {
   [k in AvailableFeatures]: boolean;

@@ -70,6 +70,7 @@ export default function createComponent() {
             }
           }
         }
+        featureData.entry = await EntrySpecs.inquireData!();
         Object.entries(
           generateOutput(
             componentName,
@@ -111,8 +112,6 @@ export function generateOutput(
           output = specs.generateOutput(componentFolder, componentName, features, featureData) as FileSpec;
           break;
         case "storybook":
-          output = specs.generateOutput(componentFolder, componentName) as FileSpec;
-          break;
         case "styles":
           output = specs.generateOutput(componentFolder, componentName, featureData) as FileSpec;
           break;

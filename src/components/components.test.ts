@@ -22,6 +22,9 @@ it("Should generate documentation correctly", () => {
         businessRules: [MOCK_BUSINESS_RULE],
         model: "@testing-library/react",
       },
+      entry: {
+        model: "compact"
+      }
     },
     componentFolder
   );
