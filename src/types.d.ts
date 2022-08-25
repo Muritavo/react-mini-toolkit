@@ -1,4 +1,6 @@
-type AvailableFeatures = "storybook" | "intl" | "tests" | "styles";
+type AvailableFeatures = "storybook" | "intl" | "tests" | "styles" | "entry";
+
+type FileSpec = { filepath: string; content: string }
 
 // The object that defines what is a feature
 type FeatureControl<E extends AvailableFeatures> = {
@@ -16,7 +18,7 @@ type FeatureControl<E extends AvailableFeatures> = {
    * T = When generating output, it can require more data (e.g. The tests output is bound to the documentation data)
    * @returns The definition of the file and content
    */
-  generateOutput: (componentFolder: string, ...args: any[]) => { filepath: string; content: string };
+  generateOutput: (componentFolder: string, ...args: any[]) => FileSpec | FileSpec[];
 };
 
 type FeatureData = {

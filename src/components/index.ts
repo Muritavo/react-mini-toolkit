@@ -4,6 +4,7 @@ import { join, resolve } from "path";
 import TestSpecs from "./tests";
 import SassSpecs from "./styles";
 import IntlSpecs from "./intl";
+import EntrySpecs from "./entry";
 import StorybookSpecs from "./storybook";
 import { f } from "../utility/fileGenerator";
 import StylesBuilder from "../builder/styles";
@@ -100,67 +101,37 @@ export function generateOutput(
   featureData: FeatureData,
   componentFolder: string
 ) {
-  const files: { [filename: string]: string } = {
-    [join(componentFolder, "index.tsx")]: `export { default } from './${componentName}';\n`,
-    [join(componentFolder, `${componentName}.tsx`)]: generateMainFile(
-      componentName,
-      componentDescription,
-      features,
-      featureData
-    ),
-  };
+  const files: { [filename: string]: string } = {};
 
   for (let specs of FEATURES) {
     if (features[specs.name as keyof Features]) {
-      let output: ReturnType<
-        FeatureControl<AvailableFeatures>["generateOutput"]
-      >;
+      let output: FileSpec;
       switch (specs.name) {
         case "tests":
-          output = specs.generateOutput(componentFolder, componentName, features, featureData);
+          output = specs.generateOutput(componentFolder, componentName, features, featureData) as FileSpec;
           break;
         case "storybook":
-          output = specs.generateOutput(componentFolder, componentName);
+          output = specs.generateOutput(componentFolder, componentName) as FileSpec;
           break;
         case "styles":
-          output = specs.generateOutput(componentFolder, componentName, featureData);
+          output = specs.generateOutput(componentFolder, componentName, featureData) as FileSpec;
           break;
         default:
-          output = specs.generateOutput(componentFolder);
+          output = specs.generateOutput(componentFolder) as FileSpec;
           break;
       }
       files[output.filepath] = output.content;
     }
   }
 
+  const entryFiles = EntrySpecs.generateOutput(componentFolder,
+    componentName,
+    componentDescription,
+    features,
+    featureData) as FileSpec[]
+  for (let file of entryFiles) {
+    files[file.filepath] = file.content;
+  }
+
   return files;
-}
-
-function generateMainFile(
-  componentName: string,
-  componentDescription: string,
-  features: { [key in typeof FEATURES[number]["name"]]: boolean },
-  featuresConfig: FeatureData
-) {
-  const styleComponents = new StylesBuilder()
-    .withComponentName(componentName)
-    .withType(featuresConfig.styles?.model)
-    .withFeatureEnabled(features.styles)
-    .build();
-
-  return f(
-    "import React from 'react';",
-    styleComponents.import(),
-    features.intl ? `import { useIntl } from 'react-intl'
-import messages from './messages'` : undefined,
-    `
-/**
- * ${componentDescription}
- **/
-export default function ${componentName}() {`,
-    styleComponents.componentBody(),
-    features.intl ? "    const { formatMessage } = useIntl();" : undefined,
-    `    return <>${componentName}</>;
-}`
-  )
 }

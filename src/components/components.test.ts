@@ -15,6 +15,7 @@ it("Should generate documentation correctly", () => {
       styles: false,
       storybook: false,
       tests: true,
+      entry: true
     },
     {
       tests: {
