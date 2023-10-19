@@ -6,10 +6,8 @@ import SassSpecs from "./styles";
 import IntlSpecs from "./intl";
 import EntrySpecs from "./entry";
 import StorybookSpecs from "./storybook";
-import { f } from "../utility/fileGenerator";
-import StylesBuilder from "../builder/styles";
 
-const l = require("debug")("react-mini-toolkit");
+const l = require("debug")("react-mini-toolkit/component");
 
 export const FEATURES: FeatureControl<AvailableFeatures>[] = [
   TestSpecs,
